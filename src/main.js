@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MAIN ENTRY POINT - JAWAHERNATH P PORTFOLIO (VIBRANT CINEMATIC THEME)
+   MAIN ENTRY POINT - JAWAHERNATH P PORTFOLIO (OPTIMIZED 60 FPS PERFORMANCE)
    ========================================================================== */
 
 import Lenis from 'lenis';
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Lenis Smooth Scroll
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.0,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
     smoothTouch: false
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Render DOM Content
   renderPortfolioApp();
 
-  // 4. Custom Cursor & Interactive Mouse Sparkle Trail
+  // 4. Custom Cursor & Throttled Mouse Sparkle Trail
   initCustomCursor();
   initMouseSparkleTrail();
 
@@ -62,16 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+  }, { passive: true });
 
-  // Sound FX & Magnetic Hover for buttons & links
+  // Sound FX for buttons & links
   document.querySelectorAll('a, button, .btn-glow, .btn-outline').forEach(el => {
     el.addEventListener('mouseenter', playHoverSound);
     el.addEventListener('click', playClickSound);
   });
 });
 
-/* Interactive Mouse Sparkle Particle Trail */
+/* Optimized Mouse Sparkle Particle Trail */
 function initMouseSparkleTrail() {
   const canvas = document.createElement('canvas');
   canvas.id = 'particle-trail-canvas';
@@ -84,25 +84,30 @@ function initMouseSparkleTrail() {
   window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
-  });
+  }, { passive: true });
 
   const particles = [];
-  const colors = ['#FF3CAC', '#00F5FF', '#7B2FF7', '#FFD93D', '#00E676'];
+  const colors = ['#FF3CAC', '#00F5FF', '#7B2FF7', '#FFD93D'];
+  let lastSpawn = 0;
 
   window.addEventListener('mousemove', (e) => {
-    for (let i = 0; i < 2; i++) {
+    const now = Date.now();
+    if (now - lastSpawn < 30) return; // Throttle particle creation for 60 FPS
+    lastSpawn = now;
+
+    if (particles.length < 30) {
       particles.push({
         x: e.clientX,
         y: e.clientY,
-        vx: (Math.random() - 0.5) * 3,
-        vy: (Math.random() - 0.5) * 3,
-        size: Math.random() * 4 + 2,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2,
+        size: Math.random() * 3 + 2,
         color: colors[Math.floor(Math.random() * colors.length)],
         alpha: 1,
-        life: Math.random() * 20 + 20
+        life: 25
       });
     }
-  });
+  }, { passive: true });
 
   function renderTrail() {
     ctx.clearRect(0, 0, width, height);
@@ -121,8 +126,6 @@ function initMouseSparkleTrail() {
       ctx.save();
       ctx.globalAlpha = p.alpha;
       ctx.fillStyle = p.color;
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = p.color;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fill();
@@ -177,11 +180,11 @@ function initCustomCursor() {
     mouseX = e.clientX;
     mouseY = e.clientY;
     dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-  });
+  }, { passive: true });
 
   function renderCursor() {
-    followerX += (mouseX - followerX) * 0.15;
-    followerY += (mouseY - followerY) * 0.15;
+    followerX += (mouseX - followerX) * 0.18;
+    followerY += (mouseY - followerY) * 0.18;
     follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
     requestAnimationFrame(renderCursor);
   }
