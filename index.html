@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jawahernath P — Video Editor • Motion Graphics Designer • 3D Artist</title>
+  <meta name="description" content="Award-winning portfolio of Jawahernath P. Professional Video Editor, Motion Graphics Designer, 3D Artist & Content Creator in Tamil Nadu, India." />
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Background WebGL Galaxy Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="nav-brand">
+      <div class="nav-logo-icon">J</div>
+      <div class="nav-logo-text">JAWAHERNATH P</div>
+    </a>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#work" class="nav-link">Work</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#software" class="nav-link">Software</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="btn-audio-toggle" id="audio-toggle-btn" title="Toggle Sound FX">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+      </button>
+      <a href="#showreel" class="btn-glow nav-desktop-btn" style="padding: 0.6rem 1.4rem; font-size: 0.88rem;">
+        Watch Showreel
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <button class="mobile-menu-close" id="mobile-menu-close">&times;</button>
+      <ul class="mobile-nav-list">
+        <li><a href="#work" class="mobile-nav-link">Work</a></li>
+        <li><a href="#services" class="mobile-nav-link">Services</a></li>
+        <li><a href="#software" class="mobile-nav-link">Software</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        <li style="margin-top: 1.5rem;">
+          <a href="#showreel" class="btn-glow mobile-nav-link" style="justify-content: center; width: 100%;">Watch Showreel</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Side: Content -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-pulse"></span>
+            Available for Global Freelance & Projects
+          </div>
+          
+          <h1 class="hero-title text-gradient">
+            JAWAHERNATH P
+          </h1>
+
+          <div class="hero-subtitles">
+            <span class="hero-tag">Video Editor</span>
+            <span class="hero-tag">Motion Graphics Designer</span>
+            <span class="hero-tag">3D Artist</span>
+            <span class="hero-tag">Content Creator</span>
+          </div>
+
+          <p class="hero-tagline">
+            Bringing Stories to Life Through Motion, Design & Creativity.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#work" class="btn-glow">
+              <span>Explore My Work</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="#showreel" class="btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Watch Showreel</span>
+            </a>
+
+            <a href="#contact" class="btn-outline" style="border-color: rgba(123, 47, 247, 0.4);">
+              <span>Contact Me</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: 3D Procedural DSLR Camera Canvas & Software Badges -->
+        <div class="hero-canvas-container">
+          <canvas id="hero-3d-canvas"></canvas>
+
+          <!-- Floating Badges -->
+          <div class="floating-tool-card card-1">
+            <div class="tool-icon" style="background: #00005B; color: #9999FF;">Pr</div>
+            <div class="tool-info">
+              <span>Timeline</span>
+              <strong>Premiere Pro</strong>
+            </div>
+          </div>
+
+          <div class="floating-tool-card card-2">
+            <div class="tool-icon" style="background: #00005B; color: #CF96D8;">Ae</div>
+            <div class="tool-info">
+              <span>VFX / Motion</span>
+              <strong>After Effects</strong>
+            </div>
+          </div>
+
+          <div class="floating-tool-card card-3">
+            <div class="tool-icon" style="background: #221200; color: #EA7600;">Bl</div>
+            <div class="tool-info">
+              <span>3D Viewport</span>
+              <strong>Blender 3D</strong>
+            </div>
+          </div>
+
+          <div class="floating-tool-card card-4">
+            <div class="tool-icon" style="background: #051A30; color: #0093FF;">C4D</div>
+            <div class="tool-info">
+              <span>Procedural</span>
+              <strong>Cinema 4D</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO QUOTE SECTION -->
+  <section class="intro-quote-section">
+    <div class="container">
+      <div class="quote-box">
+        <div class="quote-mark">“</div>
+        <p class="quote-text">
+          I don't just edit videos,<br />
+          I create stories that 
+          <span class="animated-word word-connect">Connect</span>,
+          <span class="animated-word word-engage">Engage</span>, and
+          <span class="animated-word word-inspire">Inspire</span>.
+        </p>
+        <div class="quote-mark" style="text-align: right;">”</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME SECTION -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">WHO I AM</span>
+        <h2 class="section-title text-gradient">ABOUT ME</h2>
+        <p class="section-desc">Passionate creator blending 3D mechanics, kinetic motion, and high-retention cinematic editing.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="glass-card about-card-main">
+          <h3 class="font-subheading" style="font-size: 1.8rem; margin-bottom: 1.2rem; color: #fff;">
+            Crafting Visual Masterpieces for Global Brands
+          </h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+            With over 6+ years of specialized experience in video editing, 3D graphics, motion typography, and social media growth, I bridge the gap between abstract imagination and high-converting visual storytelling.
+          </p>
+
+          <div class="about-role-list">
+            <div class="about-role-item">
+              <div class="role-icon-box">01</div>
+              <div class="role-info">
+                <h4>Professional Video Editor</h4>
+                <p>Master of narrative pacing, rhythm, ACES color grading, and binaural audio design.</p>
+              </div>
+            </div>
+
+            <div class="about-role-item">
+              <div class="role-icon-box">02</div>
+              <div class="role-info">
+                <h4>Motion Graphics Designer</h4>
+                <p>Specializing in kinetic typography, lower thirds, abstract visual idents, and HUD elements.</p>
+              </div>
+            </div>
+
+            <div class="about-role-item">
+              <div class="role-icon-box">03</div>
+              <div class="role-info">
+                <h4>3D Animation Artist</h4>
+                <p>Creating photorealistic product renders, procedural particle visualizers, and lighting in Blender & C4D.</p>
+              </div>
+            </div>
+
+            <div class="about-role-item">
+              <div class="role-icon-box">04</div>
+              <div class="role-info">
+                <h4>Creative Storyteller & Content Creator</h4>
+                <p>Building high-retention videos for YouTube channels, brands, and viral social media campaigns.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-stats-grid">
+          <div class="glass-card stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+
+          <div class="glass-card stat-card">
+            <div class="stat-number">50M+</div>
+            <div class="stat-label">Organic Video Views</div>
+          </div>
+
+          <div class="glass-card stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+
+          <div class="glass-card stat-card">
+            <div class="stat-number">6+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY SERVICES SECTION -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">WHAT I OFFER</span>
+        <h2 class="section-title text-gradient">MY SERVICES</h2>
+        <p class="section-desc">Comprehensive post-production, 3D motion design, and visual media solutions.</p>
+      </div>
+
+      <div class="services-grid" id="services-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFTWARE I USE SECTION -->
+  <section class="section" id="software">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CREATIVE TOOLKIT</span>
+        <h2 class="section-title text-gradient">SOFTWARE I USE</h2>
+        <p class="section-desc">Industry-standard tools for 3D rendering, video cutting, VFX compositing, and audio mixing.</p>
+      </div>
+
+      <div class="software-grid" id="software-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- MY WORK / PORTFOLIO GALLERY SECTION -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FEATURED PROJECTS</span>
+        <h2 class="section-title text-gradient">MY WORK</h2>
+        <p class="section-desc">Explore a curated showcase of commercial ads, 3D animations, motion graphics, and viral cuts.</p>
+      </div>
+
+      <div class="portfolio-filter-bar" id="portfolio-tabs">
+        <!-- Category Buttons Injected via JS -->
+      </div>
+
+      <div class="portfolio-grid" id="portfolio-grid">
+        <!-- Portfolio Cards Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWREEL SECTION -->
+  <section class="section" id="showreel">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CINEMATIC SHOWCASE</span>
+        <h2 class="section-title text-gradient">2026 MASTER SHOWREEL</h2>
+      </div>
+
+      <div class="showreel-container">
+        <video class="showreel-bg-video" autoplay loop muted playsinline src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-city-lights-at-night-42226-large.mp4"></video>
+        <div class="showreel-overlay-content">
+          <button class="btn-big-play" id="btn-showreel-play" aria-label="Play Showreel">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+          <h3 class="font-subheading" style="font-size: 2.2rem; color: #fff; margin-bottom: 0.5rem;">
+            Watch 2026 Reel
+          </h3>
+          <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 500px;">
+            A 2.5-minute journey through motion graphics, 3D product renders, and high-energy video edits.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE TIMELINE SECTION -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CAREER JOURNEY</span>
+        <h2 class="section-title text-gradient">EXPERIENCE</h2>
+        <p class="section-desc">Proven track record across freelance client work, agencies, and global brand collaborations.</p>
+      </div>
+
+      <div class="timeline" id="timeline-container">
+        <!-- Timeline items injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">PROFICENCY</span>
+        <h2 class="section-title text-gradient">CORE SKILLS</h2>
+        <p class="section-desc">Mastery percentages across editing software, 3D modeling, color grading, and storytelling.</p>
+      </div>
+
+      <div class="skills-grid" id="skills-grid">
+        <!-- Circular skills injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE ME SECTION -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">THE ADVANTAGE</span>
+        <h2 class="section-title text-gradient">WHY CHOOSE ME</h2>
+        <p class="section-desc">Delivering uncompromised creative quality and professional reliability on every project.</p>
+      </div>
+
+      <div class="why-grid" id="why-grid">
+        <!-- Cards injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT TESTIMONIALS SECTION -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FEEDBACK</span>
+        <h2 class="section-title text-gradient">CLIENT TESTIMONIALS</h2>
+        <p class="section-desc">What directors, CMOs, and top content creators say about my work.</p>
+      </div>
+
+      <div class="testimonials-slider-container">
+        <div class="testimonials-track" id="testimonials-track">
+          <!-- Testimonials injected via JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">GET IN TOUCH</span>
+        <h2 class="section-title text-gradient">LET'S BUILD SOMETHING EPIC</h2>
+        <p class="section-desc">Have a video editing, 3D animation, or motion design project? Reach out directly.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Details Card -->
+        <div class="glass-card contact-card-info">
+          <div class="contact-profile-box">
+            <div class="profile-avatar">J</div>
+            <div class="profile-details">
+              <h3>Jawahernath P</h3>
+              <p>Video Editor • Motion Designer • 3D Artist</p>
+            </div>
+          </div>
+
+          <div class="contact-detail-list">
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="detail-text">
+                <span>Phone</span>
+                <a href="tel:+919952882874">+91 9952882874</a>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="detail-text">
+                <span>Email</span>
+                <a href="mailto:jawaher9952@gmail.com">jawaher9952@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="detail-text">
+                <span>Location</span>
+                <strong>Tamil Nadu, India</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-action-buttons">
+            <a href="tel:9952882874" class="social-btn">Call</a>
+            <a href="https://wa.me/919952882874" target="_blank" class="social-btn">WhatsApp</a>
+            <a href="mailto:jawaher9952@gmail.com" class="social-btn">Email</a>
+            <a href="#" class="social-btn">Instagram</a>
+            <a href="#" class="social-btn">LinkedIn</a>
+            <a href="#" class="social-btn">Behance</a>
+            <a href="#" class="social-btn">YouTube</a>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="glass-card contact-form-card">
+          <form onsubmit="event.preventDefault(); alert('Thank you! Message sent to Jawahernath P.');">
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" placeholder="e.g. Alex Johnson" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Your Email</label>
+              <input type="email" class="form-input" placeholder="e.g. alex@company.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Service Required</label>
+              <select class="form-input" style="background: #090611;">
+                <option>Video Editing</option>
+                <option>Motion Graphics</option>
+                <option>3D Animation</option>
+                <option>Commercial Ad</option>
+                <option>YouTube / Reels Series</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Project Details</label>
+              <textarea class="form-textarea" rows="4" placeholder="Tell me about your project, timeline, and vision..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-glow" style="width: 100%; justify-content: center; padding: 1rem;">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#" class="nav-brand">
+          <div class="nav-logo-icon">J</div>
+          <div class="nav-logo-text">JAWAHERNATH P</div>
+        </a>
+
+        <div style="display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
+          <a href="#work" style="color: inherit; text-decoration: none;">Work</a>
+          <a href="#services" style="color: inherit; text-decoration: none;">Services</a>
+          <a href="#about" style="color: inherit; text-decoration: none;">About</a>
+          <a href="#contact" style="color: inherit; text-decoration: none;">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Jawahernath P. All Rights Reserved. — Made with Creativity & Precision.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LUXURY PROJECT POPUP MODAL -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="glass-card modal-container">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-media-wrapper" id="modal-media-wrapper">
+        <!-- Embedded Video Stream -->
+      </div>
+
+      <span class="portfolio-cat" id="modal-cat">CATEGORY</span>
+      <h2 class="font-subheading" style="font-size: 2rem; color: #fff; margin-bottom: 0.5rem;" id="modal-title">Project Title</h2>
+
+      <div class="modal-meta-grid">
+        <div class="meta-box">
+          <span>Client</span>
+          <strong id="modal-client">-</strong>
+        </div>
+        <div class="meta-box">
+          <span>Software Used</span>
+          <strong id="modal-software">-</strong>
+        </div>
+        <div class="meta-box">
+          <span>Duration</span>
+          <strong id="modal-duration">-</strong>
+        </div>
+        <div class="meta-box">
+          <span>Year</span>
+          <strong id="modal-year">-</strong>
+        </div>
+      </div>
+
+      <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;" id="modal-desc">
+        Project description goes here...
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
